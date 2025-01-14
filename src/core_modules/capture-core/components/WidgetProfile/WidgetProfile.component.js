@@ -148,10 +148,12 @@ const WidgetProfilePlain = ({
             <Widget
                 header={
                     <div className={classes.header}>
-                        <div>{i18n.t('{{trackedEntityTypeName}} profile', {
-                            trackedEntityTypeName,
-                            interpolation: { escapeValue: false },
-                        })}</div>
+                        <div>
+                            {i18n.t(trackedEntityTypeName ? '{{trackedEntityTypeName}} profile' : 'Profile', {
+                                trackedEntityTypeName,
+                                interpolation: { escapeValue: false },
+                            })}
+                        </div>
                         <div className={classes.actions}>
                             {isEditable && (
                                 <Button onClick={() => setTeiModalState(TEI_MODAL_STATE.OPEN)} secondary small>

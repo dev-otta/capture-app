@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-12-15T15:25:38.375Z\n"
-"PO-Revision-Date: 2024-12-15T15:25:38.375Z\n"
+"POT-Creation-Date: 2025-01-14T23:43:49.836Z\n"
+"PO-Revision-Date: 2025-01-14T23:43:49.836Z\n"
 
 msgid "Choose one or more dates..."
 msgstr "Choose one or more dates..."
@@ -1387,9 +1387,6 @@ msgstr "Yes, delete {{trackedEntityTypeName}}"
 
 msgid "Profile widget could not be loaded. Please try again later"
 msgstr "Profile widget could not be loaded. Please try again later"
-
-msgid "{{trackedEntityTypeName}} profile"
-msgstr "{{trackedEntityTypeName}} profile"
 
 msgid "tracked entity instance"
 msgstr "tracked entity instance"
