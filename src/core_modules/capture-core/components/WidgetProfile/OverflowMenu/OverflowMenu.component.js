@@ -17,6 +17,7 @@ export const OverflowMenuComponent = ({
     displayChangelog,
     teiId,
     programAPI,
+    readOnlyMode,
 }: PlainProps) => {
     const [actionsIsOpen, setActionsIsOpen] = useState(false);
     const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
@@ -51,6 +52,7 @@ export const OverflowMenuComponent = ({
                             canCascadeDeleteTei={canCascadeDeleteTei}
                             setActionsIsOpen={setActionsIsOpen}
                             setDeleteModalIsOpen={setDeleteModalIsOpen}
+                            readOnlyMode={readOnlyMode}
                         />
                     </FlyoutMenu>
                 }

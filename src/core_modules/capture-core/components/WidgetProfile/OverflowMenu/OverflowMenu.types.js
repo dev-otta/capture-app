@@ -21,4 +21,5 @@ export type PlainProps = {|
     displayChangelog: boolean,
     teiId: string,
     programAPI: any,
+    readOnlyMode?: boolean,
 |};

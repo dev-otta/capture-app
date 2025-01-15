@@ -6,4 +6,5 @@ export type Props = {|
     canWriteData: boolean,
     setActionsIsOpen: (toogle: boolean) => void,
     setDeleteModalIsOpen: (toogle: boolean) => void,
+    readOnlyMode?: boolean,
 |};

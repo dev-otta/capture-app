@@ -21,8 +21,9 @@ export const DeleteMenuItem = ({
     canWriteData,
     setActionsIsOpen,
     setDeleteModalIsOpen,
+    readOnlyMode,
 }: Props) => {
-    const disabled = useMemo(() => !canWriteData || !canCascadeDeleteTei, [canWriteData, canCascadeDeleteTei]);
+    const disabled = useMemo(() => !canWriteData || !canCascadeDeleteTei || readOnlyMode, [canWriteData, canCascadeDeleteTei, readOnlyMode]);
     const tooltipContent = getTooltipContent(disabled, trackedEntityTypeName);
 
     return (
