@@ -64,12 +64,11 @@ const MainPagePlain = ({
         <>
             {showMainPage ? (
                 <>
+                    {MainPageStatus === MainPageStatuses.DEFAULT && (
+                        <NoSelectionsInfoBox />
+                    )}
                     {MainPageStatus === MainPageStatuses.WITHOUT_ORG_UNIT_SELECTED && (
-                        programId ? (
-                            <WithoutOrgUnitSelectedMessage programId={programId} setShowAccessible={setShowAccessible} />
-                        ) : (
-                            <NoSelectionsInfoBox />
-                        )
+                        <WithoutOrgUnitSelectedMessage programId={programId} setShowAccessible={setShowAccessible} />
                     )}
                     {MainPageStatus === MainPageStatuses.CATEGORY_OPTION_INVALID_FOR_ORG_UNIT && (
                         <InvalidCategoryCombinationForOrgUnitMessage />
