@@ -27,7 +27,7 @@ export const useWorkingListLabel = ({
     const isSameProgram = workingListProgramId === programId;
 
     const label = useMemo(() => {
-        if (isLoadingTemplates) return '...';
+        if (isLoadingTemplates || !templates) return '...';
 
         if (isSameProgram) {
             if (!selectedTemplateId || selectedTemplateId === 'default') {
@@ -52,6 +52,7 @@ export const useWorkingListLabel = ({
         selectedTemplate,
         selectedTemplateId,
         trackedEntityName,
+        templates,
     ]);
 
     return {
