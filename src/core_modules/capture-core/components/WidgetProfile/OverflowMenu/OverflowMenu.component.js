@@ -23,6 +23,11 @@ export const OverflowMenuComponent = ({
     const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
     const [changelogIsOpen, setChangelogIsOpen] = useState(false);
 
+    // If in read-only mode and changelog is disabled, don't render the menu at all
+    if (readOnlyMode && !displayChangelog) {
+        return null;
+    }
+
     return (
         <>
             <OverflowButton
@@ -46,14 +51,15 @@ export const OverflowMenuComponent = ({
                                 <MenuDivider dense />
                             </>
                         )}
-                        <DeleteMenuItem
-                            trackedEntityTypeName={trackedEntityTypeName}
-                            canWriteData={canWriteData}
-                            canCascadeDeleteTei={canCascadeDeleteTei}
-                            setActionsIsOpen={setActionsIsOpen}
-                            setDeleteModalIsOpen={setDeleteModalIsOpen}
-                            readOnlyMode={readOnlyMode}
-                        />
+                        {!readOnlyMode && (
+                            <DeleteMenuItem
+                                trackedEntityTypeName={trackedEntityTypeName}
+                                canWriteData={canWriteData}
+                                canCascadeDeleteTei={canCascadeDeleteTei}
+                                setActionsIsOpen={setActionsIsOpen}
+                                setDeleteModalIsOpen={setDeleteModalIsOpen}
+                            />
+                        )}
                     </FlyoutMenu>
                 }
             />
