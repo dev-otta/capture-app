@@ -60,7 +60,7 @@ const useMainPageStatus = ({
         }
 
         if (withoutOrgUnit) {
-            return MainPageStatuses.WITHOUT_ORG_UNIT_SELECTED;
+            return programId ? MainPageStatuses.WITHOUT_ORG_UNIT_SELECTED : MainPageStatuses.DEFAULT;
         }
 
         return MainPageStatuses.SHOW_WORKING_LIST;

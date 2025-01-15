@@ -2,18 +2,29 @@
 import React from 'react';
 import i18n from '@dhis2/d2-i18n';
 import { withStyles } from '@material-ui/core';
+import type { CssClasses } from 'capture-core/flowTypes';
 import { IncompleteSelectionsMessage } from '../../../IncompleteSelectionsMessage';
 
 const styles = {
     incompleteMessageContainer: {
         marginTop: '10px',
     },
+    infoBoxContent: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '8px',
+        textAlign: 'center',
+    },
 };
 
-const NoSelectionsInfoBoxPlain = ({ classes }) => (
+type Props = {|
+    ...CssClasses,
+|};
+
+const NoSelectionsInfoBoxPlain = ({ classes }: Props) => (
     <div className={classes.incompleteMessageContainer}>
         <IncompleteSelectionsMessage dataTest="no-selections-info-box">
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'center' }}>
+            <div className={classes.infoBoxContent}>
                 <span>
                     <strong>{i18n.t('Report data')}</strong>:{' '}
                     {i18n.t('choose a registering unit and program, then click the New button')}
