@@ -42,7 +42,8 @@ const useMainPageStatus = ({
     const withoutOrgUnit = useMemo(() => !orgUnitId && !showAllAccessible, [orgUnitId, showAllAccessible]);
 
     return useMemo(() => {
-        if (!programId) return MainPageStatuses.DEFAULT;
+        // If no program is selected, or only org unit is selected, show the info box
+        if (!programId) return MainPageStatuses.WITHOUT_ORG_UNIT_SELECTED;
 
         if (selectedProgram?.categoryCombination) {
             if (!categories) return MainPageStatuses.WITHOUT_PROGRAM_CATEGORY_SELECTED;
