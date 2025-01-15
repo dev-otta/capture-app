@@ -30,16 +30,16 @@ export const useWorkingListLabel = ({
         if (isLoadingTemplates) return '...';
 
         if (isSameProgram) {
+            if (!selectedTemplateId || selectedTemplateId === 'default') {
+                return i18n.t('{{trackedEntityName}} list', { trackedEntityName });
+            }
+
             if (selectedTemplate && !selectedTemplate.isDefault) {
                 return selectedTemplate.name;
             }
 
             if (selectedTemplateId && !selectedTemplate) {
                 return DefaultFilterLabels[selectedTemplateId];
-            }
-
-            if (selectedTemplate.name === 'default') {
-                return i18n.t('{{trackedEntityName}} list', { trackedEntityName });
             }
         }
 
