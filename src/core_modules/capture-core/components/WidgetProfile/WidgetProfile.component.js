@@ -149,10 +149,12 @@ const WidgetProfilePlain = ({
                 header={
                     <div className={classes.header}>
                         <div>
-                            {i18n.t(trackedEntityTypeName ? '{{trackedEntityTypeName}} profile' : 'Profile', {
-                                trackedEntityTypeName,
-                                interpolation: { escapeValue: false },
-                            })}
+                            {trackedEntityTypeName
+                                ? i18n.t('{{trackedEntityTypeName}} profile', {
+                                    trackedEntityTypeName,
+                                    interpolation: { escapeValue: false },
+                                })
+                                : i18n.t('Profile')}
                         </div>
                         <div className={classes.actions}>
                             {isEditable && (
