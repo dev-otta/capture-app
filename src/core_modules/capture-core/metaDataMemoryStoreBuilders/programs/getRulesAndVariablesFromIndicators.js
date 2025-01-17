@@ -10,7 +10,7 @@ export type CachedProgramIndicator = {
     name: string,
     displayName: string,
     description?: ?string,
-    expression: string,
+    expression?: ?string,
     filter?: ?string,
     programId: string,
     shortName: string,
@@ -31,6 +31,7 @@ function performStaticReplacements(expression: string) {
 }
 
 function getVariablesFromExpression(data: string) {
+    if (!data) return [];
     return data.match(/[A#]{\w+.?\w*}/g) || [];
 }
 
@@ -150,7 +151,7 @@ function buildIndicatorRuleAndVariables(programIndicator: CachedProgramIndicator
         id: programIndicator.id,
         content: programIndicator.name,
         displayContent: programIndicator.displayName,
-        data: programIndicator.expression,
+        data: programIndicator.expression || '',
         programRuleActionType: 'DISPLAYKEYVALUEPAIR',
         location: 'indicators',
         style: programIndicator.style || null,
