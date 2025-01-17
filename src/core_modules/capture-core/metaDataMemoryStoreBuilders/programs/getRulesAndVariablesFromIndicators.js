@@ -2,7 +2,7 @@
 import isString from 'd2-utilizr/lib/isString';
 
 import type { ProgramRule, ProgramRuleAction, ProgramRuleVariable } from '@dhis2/rules-engine-javascript';
-import { variableSourceTypes } from '@dhis2/rules-engine-javascript';
+import { variableSourceTypes } from '@dhis2/rules-engine-javascript/build/es/services/VariableService';
 
 export type CachedProgramIndicator = {
     id: string,
