@@ -43,12 +43,9 @@ class SingleSelectFieldPlain extends Component<Props> {
             disabled,
             required,
             placeholder,
+            filterable = true,
+            clearable = true,
             ...passOnProps
-        } = this.props;
-
-        const {
-            filterable,
-            clearable,
         } = this.props;
 
         return (
