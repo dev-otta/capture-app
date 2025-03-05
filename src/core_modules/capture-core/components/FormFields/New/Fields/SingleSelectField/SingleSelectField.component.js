@@ -19,6 +19,8 @@ type Props = {
     disabled?: ?boolean,
     required?: ?boolean,
     placeholder?: ?string,
+    filterable?: ?boolean,
+    clearable?: ?boolean,
 };
 
 const SingleSelectComponent =
@@ -44,6 +46,11 @@ class SingleSelectFieldPlain extends Component<Props> {
             ...passOnProps
         } = this.props;
 
+        const {
+            filterable,
+            clearable,
+        } = this.props;
+
         return (
             // $FlowFixMe[cannot-spread-inexact] automated comment
             <SingleSelectComponent
@@ -53,6 +60,8 @@ class SingleSelectFieldPlain extends Component<Props> {
                 disabled={disabled}
                 required={required}
                 placeholder={placeholder}
+                filterable={filterable}
+                clearable={clearable}
                 dataTest="single-select-field"
                 {...passOnProps}
             >
