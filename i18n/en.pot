@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-17T15:42:27.630Z\n"
-"PO-Revision-Date: 2025-02-17T15:42:27.630Z\n"
+"POT-Creation-Date: 2025-03-05T14:17:49.293Z\n"
+"PO-Revision-Date: 2025-03-05T14:17:49.293Z\n"
 
 msgid "Choose one or more dates..."
 msgstr "Choose one or more dates..."
@@ -511,6 +511,9 @@ msgstr "No match found"
 msgid "Clear"
 msgstr "Clear"
 
+msgid "No results found"
+msgstr "No results found"
+
 msgid "No results"
 msgstr "No results"
 
@@ -528,9 +531,6 @@ msgstr "start typing to search"
 
 msgid "suggestions could not be retrieved"
 msgstr "suggestions could not be retrieved"
-
-msgid "No results found"
-msgstr "No results found"
 
 msgid "No items to display"
 msgstr "No items to display"
