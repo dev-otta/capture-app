@@ -23,7 +23,7 @@ export const WidgetTrackedEntityRelationship = ({
     renderTrackedEntityRegistration,
 }: WidgetTrackedEntityRelationshipProps) => {
     const { data: relationshipTypes } = useRelationshipTypes(cachedRelationshipTypes);
-    const { data: trackedEntityTypeName, isLoading: isLoadingTEType } = useTrackedEntityTypeName(trackedEntityTypeId);
+    const { data: trackedEntityTypeData, isLoading: isLoadingTEType } = useTrackedEntityTypeName(trackedEntityTypeId);
     const {
         data: relationships,
         isError,
@@ -53,7 +53,7 @@ export const WidgetTrackedEntityRelationship = ({
     return (
         <RelationshipsWidget
             title={i18n.t('{{trackedEntityTypeName}} relationships', {
-                trackedEntityTypeName,
+                trackedEntityTypeName: trackedEntityTypeData && (trackedEntityTypeData.displayFormName || trackedEntityTypeData.displayName) || '',
                 interpolation: { escapeValue: false },
             })}
             isLoading={isLoading}
@@ -65,7 +65,7 @@ export const WidgetTrackedEntityRelationship = ({
             <NewTrackedEntityRelationship
                 teiId={teiId}
                 renderElement={addRelationshipRenderElement}
-                trackedEntityTypeName={trackedEntityTypeName}
+                trackedEntityTypeName={trackedEntityTypeData && trackedEntityTypeData.displayName ? trackedEntityTypeData.displayName : ''}
                 relationshipTypes={relationshipTypes}
                 trackedEntityTypeId={trackedEntityTypeId}
                 programId={programId}
