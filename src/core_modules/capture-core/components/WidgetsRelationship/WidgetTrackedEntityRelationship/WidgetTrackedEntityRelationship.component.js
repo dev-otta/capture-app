@@ -23,7 +23,7 @@ export const WidgetTrackedEntityRelationship = ({
     renderTrackedEntityRegistration,
 }: WidgetTrackedEntityRelationshipProps) => {
     const { data: relationshipTypes } = useRelationshipTypes(cachedRelationshipTypes);
-    const { data: trackedEntityTypeName, isLoading: isLoadingTEType } = useTrackedEntityTypeName(trackedEntityTypeId);
+    const { data: trackedEntityTypeData, isLoading: isLoadingTEType } = useTrackedEntityTypeName(trackedEntityTypeId);
     const {
         data: relationships,
         isError,
@@ -37,6 +37,12 @@ export const WidgetTrackedEntityRelationship = ({
     const isLoading = useMemo(() => isLoadingRelationships || isLoadingTEType,
         [isLoadingRelationships, isLoadingTEType],
     );
+
+    // Extract the fallback logic for trackedEntityTypeName
+    const trackedEntityTypeDisplayName = useMemo(() => {
+        if (!trackedEntityTypeData) return '';
+        return trackedEntityTypeData.displayFormName || trackedEntityTypeData.displayName || '';
+    }, [trackedEntityTypeData]);
 
     if (isError) {
         return (
@@ -53,7 +59,7 @@ export const WidgetTrackedEntityRelationship = ({
     return (
         <RelationshipsWidget
             title={i18n.t('{{trackedEntityTypeName}} relationships', {
-                trackedEntityTypeName,
+                trackedEntityTypeName: trackedEntityTypeDisplayName,
                 interpolation: { escapeValue: false },
             })}
             isLoading={isLoading}
@@ -65,7 +71,7 @@ export const WidgetTrackedEntityRelationship = ({
             <NewTrackedEntityRelationship
                 teiId={teiId}
                 renderElement={addRelationshipRenderElement}
-                trackedEntityTypeName={trackedEntityTypeName}
+                trackedEntityTypeName={trackedEntityTypeData?.displayName || ''}
                 relationshipTypes={relationshipTypes}
                 trackedEntityTypeId={trackedEntityTypeId}
                 programId={programId}

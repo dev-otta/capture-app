@@ -7,6 +7,7 @@ import { extractElementIdsFromRelationshipTypes, formatRelationshipTypes } from 
 type Element = {|
     id: string,
     displayName: string,
+    displayFormName?: string,
     valueType: string,
     optionSet?: {|
         options: Array<{
@@ -41,7 +42,7 @@ export const useRelationshipTypes = (cachedRelationshipTypes?: RelationshipTypes
         const filteredAttributeQuery = {
             resource: 'trackedEntityAttributes',
             params: {
-                fields: 'id,displayName,valueType,optionSet[id,options[code,name]]',
+                fields: 'id,displayName,displayFormName,valueType,optionSet[id,options[code,name]]',
                 filter: `id:in:[${Object.keys(attributeIds).join(',')}]`,
                 paging: false,
             },

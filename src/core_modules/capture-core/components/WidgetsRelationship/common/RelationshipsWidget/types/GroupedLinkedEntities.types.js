@@ -4,6 +4,7 @@ import { dataElementTypes } from '../../../../../metaData';
 export type MetadataBasedColumn = $ReadOnly<{|
     id: string,
     displayName: string,
+    displayFormName?: string,
     type: $Keys<typeof dataElementTypes>,
     options?: Array<{ code: string, name: string }>,
 |}>;
@@ -11,6 +12,7 @@ export type MetadataBasedColumn = $ReadOnly<{|
 export type ManualColumn = $ReadOnly<{|
     id: string,
     displayName: string,
+    displayFormName?: string,
     convertValue: (value: any) => any,
     options?: Array<{ code: string, name: string }>,
 |}>;
