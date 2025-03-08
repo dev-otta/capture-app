@@ -11,6 +11,7 @@ type Element = {|
     id: string,
     valueType: string,
     displayName: string,
+    displayFormName?: string,
     optionSet?: {|
         options: Array<{
             code: string,
@@ -30,10 +31,11 @@ export const formatRelationshipTypes = ({
     attributes,
     dataElements,
 }: Props): RelationshipTypes => {
-    const attributesById = attributes.reduce((acc, { id, valueType, displayName, optionSet }) => {
+    const attributesById = attributes.reduce((acc, { id, valueType, displayName, displayFormName, optionSet }) => {
         acc[id] = {
             valueType,
             displayName,
+            displayFormName,
             options: optionSet?.options,
         };
         return acc;
